@@ -31,17 +31,34 @@ Instructions:
 bitbucket-pull-request --help
 ```
 
+You also need an
+[app password](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/)
+for this. With the following permissions:
+
+- `--defaultReviewers false`
+
+  - `pullrequest` **WRITE** permission.
+
+- `--defaultReviewers true`
+
+  - same as above
+  - `account` **READ** permission.
+
 ### Dependency
 
 You can also this as a dependency of your Deno scripts. Take a look at the what
 it [exports](./mod.ts).
 
 ```ts
-import { makePullRequest, version } from "mod.ts";
-import type { Body, Config, ResponseJson} from "mod.ts";
+import { MakePullRequest, version } from "mod.ts";
+import type { Config } from "mod.ts";
 
 console.log(`The current version is ${version}`).
 
-const data = await makePullRequest(myWallet);
+const config: Config = {
+  // Config types
+}
+
+const data = await (new MakePullRequest(config)).execute();
 console.log(data);
 ```

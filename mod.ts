@@ -1,3 +1,4 @@
-export { makePullRequest } from "./lib/main.ts";
 export { version } from "./lib/version.ts";
-export type { Body, Config, ResponseJson } from "./lib/main.ts";
+export { MakePullRequest } from "./lib/bitbucket/MakePullRequest.ts";
+export { User } from "./lib/entity/User.ts";
+export type { Config } from "./lib/types/Config.ts";
