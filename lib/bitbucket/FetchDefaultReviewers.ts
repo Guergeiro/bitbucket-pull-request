@@ -1,8 +1,9 @@
 import { User } from "../entity/User.ts";
 import { DefaultReviewersResponseDto } from "../types/DefaultReviewersResponseDto.ts";
-import { RestApi } from "./RestApi.ts";
+import { RestApi } from "../../deps.ts";
+import type { Config } from "../types/Config.ts";
 
-export class FetchDefaultReviewers extends RestApi<Array<User>> {
+export class FetchDefaultReviewers extends RestApi<Config, Array<User>> {
   protected override buildUrl() {
     const url = new URL(
       `2.0/repositories/${super.config.repoOwner}/${super.config.repoSlug}/default-reviewers`,

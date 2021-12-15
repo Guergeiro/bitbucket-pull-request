@@ -2,9 +2,9 @@ import { User } from "../entity/User.ts";
 import { Config } from "../types/Config.ts";
 import { PullRequestRequestDto } from "../types/PullRequestRequestDto.ts";
 import { PullRequestResponseDto } from "../types/PullRequestResponseDto.ts";
-import { RestApi } from "./RestApi.ts";
+import { RestApi } from "../../deps.ts";
 
-export class MakePullRequest extends RestApi<PullRequestResponseDto> {
+export class MakePullRequest extends RestApi<Config, PullRequestResponseDto> {
   #reviewers: Array<User>;
 
   public constructor(config: Config, reviewers: Array<User> = []) {

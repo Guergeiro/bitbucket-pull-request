@@ -1,8 +1,9 @@
 import { User } from "../entity/User.ts";
 import { UserResponseDto } from "../types/UserResponseDto.ts";
-import { RestApi } from "./RestApi.ts";
+import { RestApi } from "../../deps.ts";
+import { Config } from "../types/Config.ts";
 
-export class FetchCurrentUser extends RestApi<User> {
+export class FetchCurrentUser extends RestApi<Config, User> {
   protected override buildUrl() {
     const url = new URL(`2.0/user`, super.baseUrl);
 
